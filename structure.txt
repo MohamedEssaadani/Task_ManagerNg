@@ -1,0 +1,8 @@
+components: 
+header
+    task-manager
+        new-task  --add task
+        tasks-list  --show all tasks
+            task-item
+        task-details --show task details 
+footer

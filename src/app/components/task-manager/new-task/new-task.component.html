@@ -1,0 +1,13 @@
+<div>
+    <button class="float-right btn btn-info mb-4" routerLink="/login">Log out</button>
+</div>
+<form (submit)="addTask($event)">
+   
+
+    <div class="input-group">
+        <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" [(ngModel)]="title">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary input-fgroup-text" style="float:right;"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>    
+</form>
