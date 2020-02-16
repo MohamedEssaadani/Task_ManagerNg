@@ -4,7 +4,6 @@ import { Task } from '../Task';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,6 @@ export class TaskService {
   headers: Headers =  new Headers();
   options: any;
   apiServer : string = 'http://localhost:8000/';
-
   constructor(private http: HttpClient) { 
     this.headers.append('enctype', 'multipart/form-data');
     this.headers.append('Content-Type', 'application/json');
@@ -29,10 +27,12 @@ export class TaskService {
     return this.http.post<Task>(this.apiServer+'postTask',task);
   }
 
-  getAllTasks():Observable<Task[]>
+ getAllTasks():Observable<Task[]>
   {
     return this.http.get<Task[]>(this.apiServer+'get');
   }
+  
+  
 
   deleteTask(id):Observable<Task>
   {

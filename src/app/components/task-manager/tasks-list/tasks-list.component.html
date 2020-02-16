@@ -1,3 +1,7 @@
+<div class="card card-header" style="margin-top:10px;" *ngIf="tasksList.length==0">
+    <h4>There is no task!</h4>
+</div>
+
 <ul class="list-group mt-4" >
     <li class="list-group-item" *ngFor="let task of tasksList">
         <app-task-item [task]="task"></app-task-item>
