@@ -3,7 +3,8 @@
 </div>
 <form (submit)="addTask($event)">
     <div class="input-group">
-        <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" [(ngModel)]="title" >
+        <input type="text" id="title" name="title" class="form-control" placeholder="Enter Title" [(ngModel)]="title" [ngClass]="{ 'is-invalid': title==='' && formSubmitted}">
+        <div class="invalid-feedback">Please Give A Title!!</div>
         <div class="input-group-append">
             <button class="btn btn-outline-secondary input-fgroup-text" style="float:right;"><i class="fa fa-plus"></i></button>
         </div>

@@ -9,7 +9,7 @@ import { MessageService } from '../../../service/message.service';
 })
 export class NewTaskComponent implements OnInit {
 
-  title: string;
+  title: string = '';
   formSubmitted : boolean = false;
 
   constructor(private taskService : TaskService, private messageService: MessageService) { }
@@ -23,6 +23,7 @@ export class NewTaskComponent implements OnInit {
     e.preventDefault(); 
     this.taskService.addTask(this.title).subscribe((data)=>{
       this.title='';
+      this.formSubmitted = false;
       this.messageService.setMessage('new task');
     });
   }
