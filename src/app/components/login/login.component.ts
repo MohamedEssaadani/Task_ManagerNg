@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  username:string = '';
+  password:string = '';
+  
+  constructor(private router : Router, private loginService : LoginService) { }
 
   ngOnInit(): void {
   }
@@ -18,13 +22,15 @@ export class LoginComponent implements OnInit {
     //cancel the submit event to make it as default (before submitting) cuz his event changed now
     e.preventDefault();
     //take the elemnent that triggered the event (form)
-    const target = e.target;
-    const name   = target.querySelector('#username').value;
-    const password   = target.querySelector('#password').value;
+    //const target = e.target;
    
-    if(name === password)
+    const response = this.loginService.login(this.username, this.password);
+
+    alert(response.message);
+    if(response.status === 200)
     {
       this.router.navigateByUrl('tasks');
+      return;
     }
   }
 }
